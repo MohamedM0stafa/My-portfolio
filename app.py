@@ -54,26 +54,26 @@ if menu == "Home":
         * Programming & Scripting: Python (Pandas, NumPy, Matplotlib/Seaborn).
         """)
     st.markdown("---")
-    st.markdown("### 📈 Key Achievements & Business Impact")
-
-    # عمل 3 أعمدة لعرض الأرقام بجانب بعضها
-    m1, m2, m3 = st.columns(3)
-
-    with m1:
-        st.metric(
-            label="Time Saved via Automation", value="80%", delta="Excel Power Query"
-        )
-
-    with m2:
-        st.metric(label="Query Performance Lift", value="45%", delta="SQL Optimization")
-
-    with m3:
-        st.metric(
-            label="Analyzed Dataset Capacity",
-            value="20K+ Rows",
-            delta="Power BI Star Schema",
-        )
-    st.markdown("---")
+    #    st.markdown("### 📈 Key Achievements & Business Impact")
+    #
+    #    # عمل 3 أعمدة لعرض الأرقام بجانب بعضها
+    #    m1, m2, m3 = st.columns(3)
+    #
+    #    with m1:
+    #        st.metric(
+    #            label="Time Saved via Automation", value="80%", delta="Excel Power Query"
+    #        )
+    #
+    #    with m2:
+    #        st.metric(label="Query Performance Lift", value="45%", delta="SQL Optimization")
+    #
+    #    with m3:
+    #        st.metric(
+    #            label="Analyzed Dataset Capacity",
+    #            value="20K+ Rows",
+    #           delta="Power BI Star Schema",
+    #        )
+    # st.markdown("---")
     # عرض فقرة التعليم داخل صندوق أنيق ومميز
     st.markdown("### 🎓 Education & Certifications")
     st.write("""
@@ -205,12 +205,10 @@ if menu == "Home":
     with col_form:
         st.markdown("**Or, Send Me a Direct Message:**")
 
-        # استخدام خدمة FormSubmit المجانية لاستقبال الرسائل على إيميلك مباشرة
-        # استبدل "your_email@gmail.com" بإيميلك الحقيقي لتصلك الرسائل عليه
         contact_form = """
         <form action="https://formsubmit.co/mohamedoxl98@gmail.com" method="POST" style="background-color: #f0f2f6; padding: 20px; border-radius: 10px;">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="http://localhost:8501">
+            <input type="hidden" name="_next" value="https://mohamed-mostafa-portfolio.streamlit.app/">
             <input type="text" name="name" placeholder="Your Name" required style="width: 100%; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
             <input type="email" name="email" placeholder="Your Email" required style="width: 100%; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
             <textarea name="message" placeholder="Your Message Here..." required style="width: 100%; height: 100px; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
@@ -354,8 +352,8 @@ elif menu == "Power BI":
     tab1, tab2, tab3 = st.tabs(
         [
             "🏪 Superstore Sales Dashboard",
-            "📈 Project 2: Financial Analysis",
-            "👥 Project 3: HR Analytics",
+            "👥 Customer Behavior & Logistics Performance Dashboard",
+            "🌍 Regional Dashboard",
         ]
     )
 
@@ -369,59 +367,127 @@ elif menu == "Power BI":
         )
 
         # تقسيم التاب إلى عمودين: عمود للشرح وعمود للـ Dashboard
-        col1, col2 = st.columns([2, 3])
+        # col1, col2 = st.columns([2, 3])
 
-        with col1:
-            st.markdown("### Problem Statement & Objective")
-            st.write("""
-           Transforming the sales data of a large store (containing over 9,800 Row) into a customized interactive dashboard for efficient executive management and the discovery of successful secretaries and creative talents.
-            """)
+        # with col1:
+        st.markdown("### Problem Statement & Objective")
+        st.write("""
+        Transforming the sales data of a large store (containing over 9,800 Row) into a customized interactive dashboard for efficient executive management and the discovery of successful secretaries and creative talents.
+        """)
 
-            st.markdown("### DAX code for measure\n\n")
-            st.code("Total Sales = SUM('Superstore Sales Dataset'[Sales])")
+        st.markdown("### Data Modeling & Architecture")
+        st.write("""
+        **Star Schema Implementation:**
+        * **Fact Table:** `Superstore Sales Dataset` holding transactional records and sales figures.
+        * **Dimension Tables:** Structured dimensions (`DIM_Customer`, `DIM_Product`, `DIM_Location`, and `Calender_Table`) to slice and filter data seamlessly across demographics, geography, and time.
+        * **Dedicated Measures:** Centralized `_Measure` table housing customized DAX logic (MoM Growth, Running Totals, and YoY variance).
+        """)
+        st.image(
+            "Pictures/Power BI/Capture5.PNG",
+            caption="Star Schema Data Model in Power BI",
+        )
 
-            st.markdown("### 🛠️ Technical Stack")
-            st.markdown("""
-            * **Data Modeling:** Star Schema (Fact & Dimension Tables).
-            * **Advanced Calculations:** Advanced DAX (Time Intelligence, MoM Growth, YTD).
-            * **ETL:** Power Query data cleansing.
-            """)
+        # with col2:
+        st.write("\n")
+        st.markdown("### Dashboard Preview")
+        st.image("Pictures/Power BI/Capture.PNG")
+        st.write("\n")
+        st.image("Pictures/Power BI/Capture1.PNG")
 
-        with col2:
-            st.markdown("### Dashboard Preview")
-            st.image("Pictures/Power BI/Capture.PNG")
+        st.markdown("### DAX code for measure\n\n")
+        st.code("""
+        Total Sales = SUM('Superstore Sales Dataset'[Sales])
+
+        Difference_TotalSales_LY = IF([Total_Sales_LY]=BLANK(),BLANK(), [Total Sales]-[Total_Sales_LY])
+            
+        Growth_Rate = ([Sales_2018] - [Sales_2017]) / [Sales_2017]
+            
+        Sales_2017 = 
+            CALCULATE(
+                SUM('Superstore Sales Dataset'[Sales]),
+                FILTER(
+                    Calender_Table,
+                    YEAR(Calender_Table[Date]) = 2017
+                )
+            )
+
+        Total_Sales_LY = CALCULATE([Total Sales],SAMEPERIODLASTYEAR(Calender_Table[Date]))
+        
+        Total_Sales_QTD = TOTALQTD([Total Sales],Calender_Table[Date])
+
+        Total_Sales_YTD = TOTALYTD([Total Sales],Calender_Table[Date])
+
+        Calender_Table = ADDCOLUMNS(CALENDARAUTO(),"Year",YEAR([Date]),"Month",Month([Date]),"Month_Name",FORMAT([Date],"MMM"),"Day",DAY([Date]))
+
+        Year-Month = FORMAT(Calender_Table[Date], "YYYY-Q")
+        """)
+
+        st.markdown("### 🛠️ Technical Stack")
+        st.markdown("""
+        * **Data Modeling:** Star Schema (Fact & Dimension Tables).
+        * **Advanced Calculations:** Advanced DAX (Time Intelligence, MoM Growth, YTD).
+        * **ETL:** Power Query data cleansing.
+        """)
+
     # -----------------------------------------------------------------
     # التاب الثاني: مشروعك القادم (كمثال)
     # -----------------------------------------------------------------
     with tab2:
-        st.subheader("Financial Performance Dashboard")
-        col1, col2 = st.columns([2, 3])
-        with col1:
-            st.markdown("### 🎯 Objective")
-            st.write(
-                "تحليل القوائم المالية، التدفقات النقدية، ومقارنة الأرباح الفعلية بالميزانية التقديرية."
-            )
-        # with col2:
-        # ضع رابط مشروعك الثاني هنا
-        # pbi_url_2 = "https://app.powerbi.com/view?r=رابط_المشروع_الثاني_هنا"
-        # components.iframe(pbi_url_2, height=600, scrolling=True)
+        st.subheader("Customer Behavior & Logistics Performance Dashboard")
+        st.caption(
+            "End-to-end Power BI reporting solution assessing customer value, shipping tiers, and geographic penetration."
+        )
+
+        # 1. عرض الصورة أولاً بعرض الصفحة كاملة
+        st.image("Pictures/Power BI/Capture2.PNG")
+        st.image("Pictures/Power BI/Capture3.PNG")
+
+        # 2. عرض الشرح أسفل الصورة مباشرة
+        st.markdown("#### 🎯 Business Highlights & HR Review")
+        st.write("""
+        * **Executive KPI Tracking:** Synthesized macro business health across $2.26M in sales, 5K orders, and multi-state operations into clear executive scorecards[cite: 7].
+        * **Customer Lifetime Value Analysis:** Isolated top-tier buying accounts to drive personalized retention workflows and customer engagement strategies[cite: 7].
+        * **Logistics Optimization:** Evaluated fulfillment volume across delivery modes to guide freight cost reduction and carrier agreement reviews[cite: 7].
+        * **Regional Penetration:** Identified sales saturation across core states to uncover untapped regional opportunities[cite: 7].
+        """)
+
+        st.markdown("### DAX code for measure\n\n")
+
+        st.code("""
+        Total Cites = DISTINCTCOUNT(DIM_Location[City])
+
+        Total Customers = DISTINCTCOUNT(DIM_Customer[Customer ID])
+
+        Total Orders = DISTINCTCOUNT('Superstore Sales Dataset'[Order ID])
+
+        Total Products = Count(DIM_Product[Product Name])
+
+        Total States = DISTINCTCOUNT(DIM_Location[State])
+        """)
+        st.markdown("---")
 
     # -----------------------------------------------------------------
     # التاب الثالث: مشروع آخر (كمثال)
     # -----------------------------------------------------------------
     with tab3:
-        st.subheader("HR & Employee Turnover Analytics")
-        col1, col2 = st.columns([2, 3])
-        with col1:
-            st.markdown("### 🎯 Objective")
-            st.write(
-                "تحليل معدلات مغادرة الموظفين (Churn) وربطها بسنوات الخبرة، الأقسام، والتقييم السنوي."
-            )
-        # with col2:
-        # ضع رابط مشروعك الثالث هنا
-        # pbi_url_3 = "https://app.powerbi.com/view?r=رابط_المشروع_الثالث_هنا"
-        # components.iframe(pbi_url_3, height=600, scrolling=True)
-elif menu == "Excel":
-    st.header("Financial Reporting")
-    st.image("assets/excel_dash.png")
-    st.write("[Download File](https://github.com/...)")
+        st.markdown("### 🌍 Regional Sales Performance & Market Penetration")
+        st.caption(
+            "Strategic Power BI dashboard analyzing revenue distribution across geographic territories, product categories, and major cities."
+        )
+
+        # 1. عرض الصورة أولاً بعرض الصفحة بالكامل
+        st.image("Pictures/Power BI/Capture4.PNG")
+
+        # 2. عرض الشرح والتقييم أسفل الصورة مباشرة
+        st.markdown("#### 🎯 Strategic Business Value & HR Evaluation")
+        st.write("""
+        * **Geographic Market Distribution:** Evaluated regional revenue split showing high territory concentration in the West (31.4%) and East (29.6%), while identifying growth opportunities in the South (17.21%)[cite: 8].
+        * **Category-Driven Regional Strategy:** Assessed category-level sales across regions, revealing dominant performance for Technology in the East (263.12K) versus Furniture (245.35K) and Office Supplies (217.47K) in the West to guide localized inventory planning[cite: 8].
+        * **Key Purchasing Hubs:** Isolated top-grossing locations, led by California (446.31K) and New York State (306.49K) at the state level, with New York City (253.45K) and Los Angeles (173.42K) dominating city performance[cite: 8].
+        * **Market Efficiency & Density:** Discovered operational variance between regional coverage and yield; Central territory includes the highest city count (181 cities, $0.49M sales) but yields lower revenue density than the West (168 cities, $0.71M sales)[cite: 8].
+        """)
+        st.markdown("---")
+# elif menu == "Excel":
+#    st.header("Financial Reporting")
+#    st.image("assets/excel_dash.png")
+#    st.write("[Download File](https://github.com/...)")
