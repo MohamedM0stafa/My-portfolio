@@ -201,7 +201,9 @@ if menu == "Home":
         st.markdown(
             "[🔗 Connect on LinkedIn](https://www.linkedin.com/in/mohamed-mostafa1-/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BfBOnvVJFQTOFPKWPNDElcg%3D%3D)"
         )
-        st.markdown("[📧 Send an Email](mailto:mohamedoxl98@gmail.com)")
+        st.markdown(
+            "[📧 Send an Email](https://mail.google.com/mail/?view=cm&fs=1&to=mohamedoxl98@gmail.com)"
+        )
     with col_form:
         st.markdown("**Or, Send Me a Direct Message:**")
 
