@@ -89,7 +89,7 @@ if menu == "Home":
                 """)
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.image("Pictures/Capture.PNG", width=200)
+        st.image("Pictures/Certificates/Capture.PNG", width=200)
     with col2:
         st.write("""
         **Program Description & Technical Core:**\n
@@ -108,6 +108,84 @@ if menu == "Home":
         * Proficiently used DAX (Data Analysis Expressions) to write custom measures and calculated columns for advanced business metrics.
         * Developed interactive, user-friendly dashboards and reports that turn complex analytical findings into compelling visual stories for stakeholders.
             """)
+
+    # -----------------------------------------------------------------
+    # IBM Certificate: Delivering Quality Work with Agility
+    # -----------------------------------------------------------------
+    st.write("\n\n")
+    st.write("""
+        **IBM – Delivering Quality Work with Agility**
+        """)
+    col_ibm_img, col_ibm_text = st.columns([1, 3])
+    with col_ibm_img:
+        st.image("Pictures/Certificates/certificate_3.png", width=200)
+    with col_ibm_text:
+        st.write("""
+        **Program Description & Technical Core:**\n
+        A professional course offered by IBM via Coursera focusing on agile methodologies, iterative delivery, and maintaining high quality in project workflows:\n
+        
+        **Agile Practices & Continuous Improvement:**
+        * Applied agile methodologies and iterative project execution to enhance analytical deliverables.
+        * Integrated feedback loops to streamline analytics development and foster adaptable workflows.
+        
+        **Quality Assurance & Workflow Optimization:**
+        * Employed root-cause analysis and problem-solving strategies to ensure accuracy across reporting pipelines.
+        * Focused on cross-functional collaboration and delivering iterative value to product and business teams.
+        
+        [🔗 Verify Credential](https://coursera.org/verify/5SRWJEFQRVS5)
+        """)
+
+        # -----------------------------------------------------------------
+    # Google Certificate 1: Foundations of Data Science
+    # -----------------------------------------------------------------
+    st.write("\n\n")
+    st.write("""
+        **Google – Foundations of Data Science**
+        """)
+    col_g1_img, col_g1_text = st.columns([1, 3])
+    with col_g1_img:
+        st.image("Pictures/Certificates/certificate_4.png", width=200)
+    with col_g1_text:
+        st.write("""
+        **Program Description & Technical Core:**\n
+        An authorized professional course offered by Google via Coursera focusing on the core principles of data science and analytical frameworks to support data-driven decision-making:\n
+        
+        **Data Exploration & Core Methodologies:**
+        * Gained a solid understanding of the data science lifecycle, foundational workflows, and career pathways.
+        * Learned how to identify data ecosystem roles and manage end-to-end data analytics operations.
+        
+        **Analytical Impact & Communication:**
+        * Explored essential tools and data structures to translate broad business problems into measurable questions.
+        * Emphasized project scoping, data ethics, and impactful communication of analytical findings.
+        
+        [🔗 Verify Credential](https://coursera.org/verify/YW603NW57IVM)
+        """)
+
+        # -----------------------------------------------------------------
+    # Google Certificate 2: Go Beyond the Numbers
+    # -----------------------------------------------------------------
+    st.write("\n\n")
+    st.write("""
+        **Google – Go Beyond the Numbers: Translate Data into Insights**
+        """)
+    col_g2_img, col_g2_text = st.columns([1, 3])
+    with col_g2_img:
+        st.image("Pictures/Certificates/certificate_2.png", width=200)
+    with col_g2_text:
+        st.write("""
+        **Program Description & Technical Core:**\n
+        An advanced Google professional course dedicated to turning raw quantitative analyses into compelling, actionable business narratives and insights:\n
+        
+        **Data Storytelling & Insight Extraction:**
+        * Mastered executive-level data storytelling by transforming data outputs into actionable recommendations.
+        * Structured findings clearly to bridge the gap between technical discovery and management decision-making.
+        
+        **Business Strategy & Presentation:**
+        * Built focused presentations tailored to executive and non-technical stakeholders.
+        * Applied structured frameworks to highlight key performance indicators (KPIs) and operational improvements.
+        
+        [🔗 Verify Credential](https://coursera.org/verify/3J38LZ0PV9WI)
+        """)
     st.markdown("---")
     st.markdown("### ✉️ Contact Me & Connect")
     col_conn, col_form = st.columns(2)
