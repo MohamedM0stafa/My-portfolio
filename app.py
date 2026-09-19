@@ -11,7 +11,7 @@ menu = st.sidebar.radio("Navigate", ["Home", "SQL", "Power BI", "Excel"])
 if menu == "Home":
     # 1. تحديد مسار ملف الـ PDF الحقيقي على جهازك أو السيرفر
     # نفترض أن الملف موجود في مجلد assets واسمه Mohamed_Mostafa_Resume.pdf
-    resume_path = r"D:\Portfolio\Pictures\Mohamed_Mostafa.pdf"
+    resume_path = r"Pictures/Mohamed_Mostafa.pdf"
 
     # 2. التأكد من وجود الملف أولاً وقراءته بصيغة الـ Bytes (rb) لضمان عدم حدوث خطأ
     if os.path.exists(resume_path):
@@ -32,7 +32,7 @@ if menu == "Home":
     col1, col2 = st.columns([1, 3])
     with col1:
         st.image(
-            r"D:\Portfolio\Pictures\WhatsApp Image 2026-06-28 at 9.36.22 PM.jpeg",
+            "Pictures/WhatsApp Image 2026-06-28 at 9.36.22 PM.jpeg",
             width=200,
         )  # صورتك هنا
     with col2:
@@ -89,7 +89,7 @@ if menu == "Home":
                 """)
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.image(r"D:\Portfolio\Pictures\Capture.PNG", width=200)
+        st.image("Pictures/Capture.PNG", width=200)
     with col2:
         st.write("""
         **Program Description & Technical Core:**\n
@@ -159,7 +159,7 @@ from Dependent d , Employee e
 where d.ESSN = e.SSN and e.Sex = 'M' and d.Sex = 'M'""")
     # Place your SQL result image here
     st.success("Output")
-    st.image("D:\Portfolio\Pictures\SQL\Capture.PNG")
+    st.image("Pictures/SQL/Capture.PNG")
     st.markdown("---")
 
     with st.chat_message("user", avatar="🏢"):
@@ -173,7 +173,7 @@ on Pno = Pnumber
 group by Pno , Pname""")
     # Place your SQL result image here
     st.success("Output")
-    st.image("D:\Portfolio\Pictures\SQL\Capture2.PNG")
+    st.image("Pictures/SQL/Capture2.PNG")
     st.markdown("---")
 
     with st.chat_message("user", avatar="🏢"):
@@ -188,7 +188,7 @@ where SSN = ( select MIN(ssn)
 			  from Employee )""")
     # Place your SQL result image here
     st.success("Output")
-    st.image("D:\Portfolio\Pictures\SQL\Capture3.PNG")
+    st.image("Pictures/SQL/Capture3.PNG")
     st.markdown("---")
 
     with st.chat_message("user", avatar="🏢"):
@@ -203,7 +203,7 @@ where Dno = Dnum
 group by Dname""")
     # Place your SQL result image here
     st.success("Output")
-    st.image("D:\Portfolio\Pictures\SQL\Capture4.PNG")
+    st.image("Pictures/SQL/Capture4.PNG")
     st.markdown("---")
 
     with st.chat_message("user", avatar="🏢"):
@@ -216,7 +216,7 @@ on SSN = ESSN
 where ESSN is null""")
     # Place your SQL result image here
     st.success("Output")
-    st.image("D:\Portfolio\Pictures\SQL\Capture5.PNG")
+    st.image("Pictures/SQL/Capture5.PNG")
     st.markdown("---")
 
     with st.chat_message("user", avatar="🏢"):
@@ -232,7 +232,7 @@ having AVG(salary) < ( select AVG(salary)
 					   from Employee )""")
     # Place your SQL result image here
     st.success("Output")
-    st.image("D:\Portfolio\Pictures\SQL\Capture6.PNG")
+    st.image("Pictures/SQL/Capture6.PNG")
     st.markdown("---")
 
     with st.chat_message("user", avatar="🏢"):
@@ -247,7 +247,7 @@ where e.ssn = w.ESSn and w.Pno = p.Pnumber
 order by e.Dno , Lname , Fname""")
     # Place your SQL result image here
     st.success("Output")
-    st.image("D:\Portfolio\Pictures\SQL\Capture7.PNG")
+    st.image("Pictures/SQL/Capture7.PNG")
     st.markdown("---")
 
     with st.chat_message("user", avatar="🏢"):
@@ -311,7 +311,7 @@ elif menu == "Power BI":
 
         with col2:
             st.markdown("### Dashboard Preview")
-            st.image(r"D:\Portfolio\Pictures\Power BI\Capture.PNG")
+            st.image("Pictures/Power BI/Capture.PNG")
     # -----------------------------------------------------------------
     # التاب الثاني: مشروعك القادم (كمثال)
     # -----------------------------------------------------------------
