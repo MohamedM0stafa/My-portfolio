@@ -447,10 +447,10 @@ elif menu == "Power BI":
         # 2. عرض الشرح أسفل الصورة مباشرة
         st.markdown("#### 🎯 Business Highlights & HR Review")
         st.write("""
-        * **Executive KPI Tracking:** Synthesized macro business health across $2.26M in sales, 5K orders, and multi-state operations into clear executive scorecards[cite: 7].
-        * **Customer Lifetime Value Analysis:** Isolated top-tier buying accounts to drive personalized retention workflows and customer engagement strategies[cite: 7].
-        * **Logistics Optimization:** Evaluated fulfillment volume across delivery modes to guide freight cost reduction and carrier agreement reviews[cite: 7].
-        * **Regional Penetration:** Identified sales saturation across core states to uncover untapped regional opportunities[cite: 7].
+        * **Executive KPI Tracking:** Synthesized macro business health across $2.26M in sales, 5K orders, and multi-state operations into clear executive scorecards.
+        * **Customer Lifetime Value Analysis:** Isolated top-tier buying accounts to drive personalized retention workflows and customer engagement strategies.
+        * **Logistics Optimization:** Evaluated fulfillment volume across delivery modes to guide freight cost reduction and carrier agreement reviews.
+        * **Regional Penetration:** Identified sales saturation across core states to uncover untapped regional opportunities.
         """)
 
         st.markdown("### DAX code for measure\n\n")
@@ -483,13 +483,64 @@ elif menu == "Power BI":
         # 2. عرض الشرح والتقييم أسفل الصورة مباشرة
         st.markdown("#### 🎯 Strategic Business Value & HR Evaluation")
         st.write("""
-        * **Geographic Market Distribution:** Evaluated regional revenue split showing high territory concentration in the West (31.4%) and East (29.6%), while identifying growth opportunities in the South (17.21%)[cite: 8].
-        * **Category-Driven Regional Strategy:** Assessed category-level sales across regions, revealing dominant performance for Technology in the East (263.12K) versus Furniture (245.35K) and Office Supplies (217.47K) in the West to guide localized inventory planning[cite: 8].
-        * **Key Purchasing Hubs:** Isolated top-grossing locations, led by California (446.31K) and New York State (306.49K) at the state level, with New York City (253.45K) and Los Angeles (173.42K) dominating city performance[cite: 8].
-        * **Market Efficiency & Density:** Discovered operational variance between regional coverage and yield; Central territory includes the highest city count (181 cities, $0.49M sales) but yields lower revenue density than the West (168 cities, $0.71M sales)[cite: 8].
+        * **Geographic Market Distribution:** Evaluated regional revenue split showing high territory concentration in the West (31.4%) and East (29.6%), while identifying growth opportunities in the South (17.21%).
+        * **Category-Driven Regional Strategy:** Assessed category-level sales across regions, revealing dominant performance for Technology in the East (263.12K) versus Furniture (245.35K) and Office Supplies (217.47K) in the West to guide localized inventory planning.
+        * **Key Purchasing Hubs:** Isolated top-grossing locations, led by California (446.31K) and New York State (306.49K) at the state level, with New York City (253.45K) and Los Angeles (173.42K) dominating city performance.
+        * **Market Efficiency & Density:** Discovered operational variance between regional coverage and yield; Central territory includes the highest city count (181 cities, $0.49M sales) but yields lower revenue density than the West (168 cities, $0.71M sales).
         """)
         st.markdown("---")
-# elif menu == "Excel":
-#    st.header("Financial Reporting")
-#    st.image("assets/excel_dash.png")
-#    st.write("[Download File](https://github.com/...)")
+elif menu == "Excel":
+    st.header("📊 Interactive Sales & Customer Business Intelligence (Excel)")
+    st.caption(
+        "End-to-end business reporting built entirely in Microsoft Excel using Power Query, Pivot Tables, and dynamic slicers."
+    )
+
+    st.markdown("### 1. Data Structuring & Preprocessing")
+    st.image(
+        "Pictures/Excel/excel_1.PNG",
+        caption="Structured Transactional Dataset",
+        use_container_width=True,
+    )
+    st.write("""
+    * **Data Normalization:** Cleaned and structured transactional records comprising orders, customer profiles, shipping tiers, and line-item categories.
+    * **Calculated Fields:** Standardized date formats and extracted foreign keys for multi-dimensional aggregation.
+    """)
+    st.markdown("---")
+
+    st.markdown("### 2. Analytical Engine (Pivot Tables & Slicers)")
+    st.image(
+        "Pictures/Excel/excel_4.PNG",
+        caption="Calculated Pivot Tables & Dynamic Slicer Architecture",
+        use_container_width=True,
+    )
+    st.write("""
+    * **Aggregation Logic:** Built independent Pivot Tables calculating profit margins, regional distributions, and seasonal order volumes.
+    * **Dynamic Filtering:** Connected interactive Slicers across timelines, customer segments, and delivery types to control visual outputs dynamically.
+    """)
+    st.markdown("---")
+
+    st.markdown("### 3. Customer Demographics & Behavior Dashboard")
+    st.image(
+        "Pictures/Excel/excel_3.PNG",
+        caption="Customer Behavior & Territory Penetration Dashboard",
+        use_container_width=True,
+    )
+    st.write("""
+    * **Core KPIs:** Highlighted macro customer health with 629 distinct customers generating 2,323 total orders and $501.2K in revenue.
+    * **Growth Tracking:** Showcased customer acquisition trends rising from 466 accounts (2013) to 778 accounts (2016).
+    * **Territory Hubs:** Mapped demand density across top cities led by Houston, Chicago, and Dallas.
+    """)
+    st.markdown("---")
+
+    st.markdown("### 4. Executive Sales & Profitability Dashboard")
+    st.image(
+        "Pictures/Excel/excel_5.PNG",
+        caption="Executive Sales Performance & Profit Margin Dashboard",
+        use_container_width=True,
+    )
+    st.write("""
+    * **Financial Performance:** Tracked overall sales ($501.2K), unit volume (8,780 items), and net profit ($39.7K).
+    * **Margin Optimization:** Pinpointed margin disparities across categories, highlighting Technology at 20% margin versus negative yield in Furniture (-2%).
+    * **Product Sub-Category Auditing:** Identified loss-making lines (Furnishings at -26% margin, Appliances at -11%) to guide pricing reviews and procurement renegotiation.
+    """)
+    st.markdown("---")
