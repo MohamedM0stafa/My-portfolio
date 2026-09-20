@@ -204,20 +204,20 @@ if menu == "Home":
         st.markdown(
             "[📧 Send an Email](https://mail.google.com/mail/?view=cm&fs=1&to=mohamedoxl98@gmail.com)"
         )
-    with col_form:
-        st.markdown("**Or, Send Me a Direct Message:**")
+#    with col_form:
+#        st.markdown("**Or, Send Me a Direct Message:**")
 
-        contact_form = """
-        <form action="https://formsubmit.co/mohamedoxl98@gmail.com" method="POST" style="background-color: #f0f2f6; padding: 20px; border-radius: 10px;">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mohamed-mostafa-portfolio.streamlit.app/">
-            <input type="text" name="name" placeholder="Your Name" required style="width: 100%; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
-            <input type="email" name="email" placeholder="Your Email" required style="width: 100%; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
-            <textarea name="message" placeholder="Your Message Here..." required style="width: 100%; height: 100px; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-            <button type="submit" style="background-color: #2dd4bf; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%;">Send Message</button>
-        </form>
-        """
-        st.markdown(contact_form, unsafe_allow_html=True)
+#        contact_form = """
+#        <form action="https://formsubmit.co/mohamedoxl98@gmail.com" method="POST" style="background-color: #f0f2f6; padding: 20px; border-radius: 10px;">
+#            <input type="hidden" name="_captcha" value="false">
+#            <input type="hidden" name="_next" value="https://mohamed-mostafa-portfolio.streamlit.app/">
+#            <input type="text" name="name" placeholder="Your Name" required style="width: 100%; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+#            <input type="email" name="email" placeholder="Your Email" required style="width: 100%; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+#            <textarea name="message" placeholder="Your Message Here..." required style="width: 100%; height: 100px; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+#            <button type="submit" style="background-color: #2dd4bf; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%;">Send Message</button>
+#        </form>
+#        """
+#        st.markdown(contact_form, unsafe_allow_html=True)
 
 elif menu == "SQL":
     st.markdown("### ❓ Business Scenario & Core Question")
